@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hokkaido/components/deck_card.dart';
 import 'package:hokkaido/controllers/deck.dart';
+import 'package:hokkaido/views/create_card.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -88,6 +89,10 @@ class HomeView extends StatelessWidget {
     textController.text = '';
   }
 
+  void _createNewCard() {
+    Get.to(CreateCardView());
+  }
+
   void _showAddButtonModal(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
     const modalRadius = Radius.circular(16);
@@ -104,7 +109,7 @@ class HomeView extends StatelessWidget {
         context,
         title: 'Add Card',
         description: 'Create a new flashcard',
-        onClick: () {},
+        onClick: _createNewCard,
       )
     ];
 
